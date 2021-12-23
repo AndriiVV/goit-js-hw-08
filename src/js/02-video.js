@@ -3,7 +3,6 @@ const player = new Vimeo.Player(iframe);
 const _ = require('lodash');
 
 player.on('play', function () {
-  console.log('played the video!');
   player.setCurrentTime(localStorage.getItem('videoplayer-current-time') || 0);
 });
 
