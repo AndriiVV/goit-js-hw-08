@@ -10,18 +10,6 @@ const refs = {
   gallery: document.querySelector('.gallery'),
 };
 
-refs.gallery.addEventListener('click', handleClick);
-
-function handleClick(event) {
-  event.preventDefault();
-  if (event.target.nodeName !== 'IMG') return;
-
-  const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
-}
-
 createImageGallery();
 
 function createImageGallery() {
@@ -37,3 +25,8 @@ function createImageGallery() {
 
   refs.gallery.insertAdjacentHTML('afterbegin', newGalleryItems);
 }
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
