@@ -6,10 +6,13 @@ const refs = {
 const STORAGE_KEY = 'feedback-form-state';
 
 const populateForm = () => {
-  const storedForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  if (storedForm) {
+  try {
+    const storedForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
     refs.form.email.value = storedForm.email;
     refs.form.message.value = storedForm.message;
+  } catch (error) {
+    console.log(error.name);
+    console.log(error.message);
   }
 };
 
